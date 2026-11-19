@@ -1,0 +1,15 @@
+# Original two-camera rig for checkpoint-compatible training resume / comparison.
+width: 320
+height: 240
+horizontal_fov_deg: 100.0
+frequency_hz: 30.0
+camera_names: [front, left]
+near_m: 0.1
+far_m: 80.0
+dropout_seconds: 0.3
+acceleration_noise: 8.0
+measurement_noise_m: 0.25
+min_pixels: 4
+torso_offset: [0.20, 0.0, 0.60]
+vehicle_size: [4.2, 1.8, 0.65]
+vehicle_center_z: 0.68

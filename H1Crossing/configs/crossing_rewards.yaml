@@ -1,0 +1,26 @@
+# High-level crossing rewards ONLY; not frozen locomotion PPO rewards.
+# Event rewards are paid ONCE and are NOT multiplied by dt.
+goal_reward: 1.0
+# Once at a safe GOAL only; never on timeout/collision/fall.
+safe_episode_bonus: 1.0
+vehicle_collision_penalty: -2.0
+# No extra fall penalty requested; fall terminates without positive bonuses.
+fall_penalty: 0.0
+# Once per natural timeout; no safe bonus is paid on timeout.
+timeout_penalty: -1.0
+# Once on leaving the local episode region (|X| > 55 m or |Y| > 8 m).
+# Boundary exit terminates, suppresses positive progress/goal bonuses, and does
+# not also charge timeout. A simultaneous vehicle collision adds its own cost.
+out_of_bounds_penalty: -1.0
+# Signed reduction of XY goal distance. +0.5/m closer, -0.5/m farther.
+# Already integrated over displacement: do not multiply by dt again.
+progress_reward_per_m: 0.5
+
+# Goal centre tolerance in world XY, not merely crossing the goal Y line.
+goal_radius_m: 0.6
+# Ignore small root jitter; turning in place does not count as movement.
+stationary_radius_m: 0.10
+stationary_grace_s: 2.0
+# Increase the rate by 0.05 reward/s per additional stationary second.
+stationary_penalty_growth_per_s2: 0.05
+stationary_max_penalty_per_s: 0.25

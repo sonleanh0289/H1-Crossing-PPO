@@ -1,0 +1,16 @@
+# Behavior PPO only; frozen locomotion checkpoint is never optimized.
+episode_seconds: 20.0
+behavior_decimation: 5        # 5 x 0.02 s locomotion = 10 Hz decisions
+action_deadband: 0.05
+heading_gain: 1.5
+contact_threshold_n: 1.0
+fall_height_m: 0.55
+fall_up_z: 0.5               # tilt >60 deg
+env_spacing_m: 120.0         # separate the 110 m roads physically
+rollout_steps: 32
+learning_rate: 0.0003
+learning_epochs: 5
+mini_batches: 4
+entropy_coefficient: 0.005
+init_std: 0.5
+save_interval: 500

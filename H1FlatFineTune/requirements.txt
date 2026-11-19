@@ -1,0 +1,3 @@
+# Use D:\IssacSim\env_isaaclab as installed. No pip install is needed for this project.
+# Isaac Sim 6.0.1 / Isaac Lab 3.0 and bundled torch are managed by that environment.
+# No new dependencies and no torch/isaacsim/isaaclab pin or replacement here.

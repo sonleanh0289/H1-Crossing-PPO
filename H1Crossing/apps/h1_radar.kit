@@ -1,0 +1,25 @@
+[package]
+title = "H1 Crossing Radar"
+description = "Opt-in RGB-D and radar experience for preview and behavior training"
+version = "0.1.0"
+
+[dependencies]
+"isaacsim.exp.base.python" = {}
+
+[settings]
+# Preserve the Python/Warp packages managed by env_isaaclab.
+app.extensions.excluded = ["omni.kit.pip_archive", "omni.isaac.ml_archive", "isaacsim.pip.newton", "omni.warp.core"]
+app.extensions.registryEnabled = false
+app.python.interceptSysStdOutput = false
+app.python.logSysStdOutput = false
+app.enableStdoutOutput = false
+app.settings.persistent = false
+isaaclab.cameras_enabled = true
+omni.replicator.asyncRendering = false
+app.asyncRendering = false
+app.asyncRenderingLowLatency = false
+app.renderer.waitIdle = true
+app.hydraEngine.waitIdle = true
+
+[settings.app.exts.folders]
+'++' = ["${exe-path}/../apps", "${exe-path}/../exts", "${exe-path}/../extscache", "${exe-path}/../extsDeprecated"]

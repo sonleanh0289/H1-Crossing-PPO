@@ -1,0 +1,15 @@
+﻿**/server/
+**/env_isaaclab/
+**/.venv/
+**/venv/
+**/.env
+**/.env.*
+**/__pycache__/
+**/.pytest_cache/
+**/logs/
+**/checkpoints/
+**/exports/
+*.pyc
+*.pt
+*.pth
+*.tar.gz

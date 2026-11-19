@@ -1,0 +1,27 @@
+# Actor: camera/radar 23D. Critic: same sensor prefix plus six current GT fields.
+# Matches the sensor baseline except for the bounded Beta action distribution.
+episode_seconds: 20.0
+behavior_decimation: 5
+action_deadband: 0.05
+heading_gain: 1.5
+contact_threshold_n: 1.0
+fall_height_m: 0.55
+fall_up_z: 0.5
+env_spacing_m: 300.0
+rollout_steps: 32
+learning_rate: 0.0001
+learning_epochs: 5
+mini_batches: 4
+entropy_coefficient: 0.005
+init_std: 0.5
+action_distribution: beta
+save_interval: 200
+guard_enabled: 1
+guard_mode: dual_loss_ttc_v1
+guard_ttc_threshold_s: 1.0
+guard_escape_speed_mps: 3.0
+guard_deceleration_mps2: 1.5
+guard_reaction_s: 0.2
+guard_time_margin_s: 0.5
+guard_position_margin_m: 0.5
+guard_recovery_s: 0.3

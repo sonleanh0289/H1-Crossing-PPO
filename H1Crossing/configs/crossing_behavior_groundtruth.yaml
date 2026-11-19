@@ -1,0 +1,17 @@
+# Ground-truth baseline: same PPO settings as camera/radar, no sensor guard.
+episode_seconds: 20.0
+behavior_decimation: 5
+action_deadband: 0.05
+heading_gain: 1.5
+contact_threshold_n: 1.0
+fall_height_m: 0.55
+fall_up_z: 0.5
+env_spacing_m: 300.0
+rollout_steps: 32
+learning_rate: 0.0001
+learning_epochs: 5
+mini_batches: 4
+entropy_coefficient: 0.005
+init_std: 0.5
+save_interval: 500
+guard_enabled: 0

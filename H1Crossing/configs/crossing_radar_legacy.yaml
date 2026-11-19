@@ -1,0 +1,17 @@
+# Original single-left-head configuration, retained for controlled comparisons.
+profile: generic_shadow_v1
+torso_offset: [0.22, 0.10, 0.35]
+yaw_deg: 90.0
+sample_hz: 30.0
+horizontal_fov_deg: 120.0
+vertical_fov_deg: 40.0
+min_range_m: 0.5
+max_range_m: 80.0
+rays_per_degree: 2.0
+association_margin_m: 0.6
+max_camera_age_s: 0.08
+min_returns: 2
+min_abs_los_x: 0.35
+max_speed_mps: 30.0
+max_speed_mad_mps: 1.5
+reset_warmup_s: 0.2

@@ -1,0 +1,19 @@
+# Isaac Sim 6.0.1, Isaac Lab 3.0.0 and its bundled PyTorch
+# must be installed separately in env_isaaclab.
+# Do not install or replace torch from this file.
+
+rsl-rl-lib==5.0.1
+skrl==2.1.0
+gymnasium==1.2.1
+numpy==2.4.4
+tensorboard==2.21.0
+
+# Data collection and experiment artifacts
+pyarrow==23.0.1
+PyYAML==6.0.3
+h5py==3.16.0
+
+# Analysis and testing
+scipy==1.17.0
+matplotlib==3.10.8
+pytest==9.1.1

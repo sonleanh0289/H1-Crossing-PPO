@@ -1,0 +1,33 @@
+# Server fallback profile and opt-in local preview; base camera defaults unchanged.
+width: 960
+height: 720
+horizontal_fov_deg: 100.0
+frequency_hz: 30.0
+camera_names: [front, left, right]
+velocity_validity: confidence_v1
+detection_filter: road-innovation-v1
+track_lifecycle: single-active-until-lost-v1
+reset_capture_policy: drain-two-scheduled-captures-v1
+# Continuity-first rollback: keep reset draining and velocity confidence.
+track_quality: legacy_v1
+# Confirm new tracks and reject implausible measurement jumps; retain 0.3 s dropout.
+motion_gate: 1
+birth_max_speed_mps: 25.0
+birth_max_residual_m: 0.75
+prediction_max_age_s: 0.15
+prediction_unreliable_age_s: 0.05
+prediction_max_std_m: 1.0
+prediction_max_displacement_m: 2.0
+road_margin_m: 0.5
+max_innovation_m: 2.0
+max_innovation_nis: 9.21
+detector_mode: multicolor
+near_m: 0.1
+far_m: 80.0
+dropout_seconds: 0.3
+acceleration_noise: 8.0
+measurement_noise_m: 0.25
+min_pixels: 4
+torso_offset: [0.20, 0.0, 0.60]
+vehicle_size: [4.2, 1.8, 0.65]
+vehicle_center_z: 0.68

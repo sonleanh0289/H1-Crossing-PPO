@@ -17,15 +17,20 @@ The main research question is whether simulator ground truth can improve trainin
 | Sensor and critic observations | [Camera perception](scripts/camera_perception.py), [radar observations](scripts/radar_observations.py), [privileged critic features](scripts/asymmetric_observations.py) |
 | Command and evaluation | [Command guard](scripts/crossing_command_guard.py), [trajectory recording](scripts/behavior_trajectory.py), [ground-truth diagnostics](scripts/ground_truth_evaluation.py) |
 
-## Selected simulation result
+## Simulation evaluation
 
-The asymmetric PPO checkpoint at iteration 1,000 was evaluated deterministically over five seeds (42â€“46), with 1,000 decisions per seed and the original guard. The counts below cover 28 completed episodes. Five episodes still in progress at the evaluation cutoff are excluded.
+The sensor runs use the same asymmetric PPO checkpoint at iteration 1,000. Each evaluation uses deterministic actions, seeds 42-46, 1,000 decisions per seed, and a 50% probability that a driver will yield. Rates use completed episodes as the denominator. Episodes still in progress at the cutoff are excluded.
 
-| Reached goal | Collided | Timed out | Fell | Left bounds |
-| ---: | ---: | ---: | ---: | ---: |
-| 14 | 4 | 10 | 0 | 0 |
+| Actor input and guard | Completed | Reached goal | Collided | Timed out | Fell | Left bounds |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Camera + radar, `dual_loss_ttc_v1` (repeat evaluation) | 107 | **66 (61.7%)** | 26 (24.3%) | 1 | 0 | 14 |
+| Camera + radar, `dual_loss_ttc_v1` (first evaluation) | 101 | 60 (59.4%) | 24 (23.8%) | 2 | 0 | 15 |
+| Camera + radar, original conservative guard | 28 | 14 (50.0%) | 4 (14.3%) | 10 | 0 | 0 |
+| Simulator ground truth, guard disabled (separate PPO policy) | 135 | 110 (81.5%) | 25 (18.5%) | 0 | 0 | 0 |
 
-All four collisions involved cars that did not yield. The actor requested forward motion throughout this evaluation and relied heavily on the guard for stopping. This experiment measures performance with the guard enabled. A matched experiment using a sensor-only critic is needed to isolate the effect of privileged information. The default [asymmetric configuration](configs/crossing_behavior_asymmetric.yaml) now uses `dual_loss_ttc_v1`, a different guard from the one used in this result.
+Both evaluations with `dual_loss_ttc_v1` recorded higher goal completion and fewer timeouts than the original guard run. They also recorded higher collision rates and more exits from the crossing area. The dual-loss guard is the default in the [asymmetric configuration](configs/crossing_behavior_asymmetric.yaml). Identical seeds and decision budgets can yield different traffic encounters when episode reset times differ.
+
+The ground-truth reference feeds exact simulator vehicle state directly to a separately trained actor. To measure the effect of privileged critic inputs, the asymmetric policy needs a matched comparison against a policy trained with the same sensor inputs for both actor and critic.
 
 ## Run the project
 

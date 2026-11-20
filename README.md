@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/0f51272e-8165-4364-ac04-e9595cccd3ff
+
 ﻿# H1 Humanoid Road Crossing
 
 A simulation research project on sensor-based road crossing with asymmetric PPO
@@ -8,3 +12,4 @@ and a fine-tuned H1 locomotion policy.
 ## Demo
 
 The H1 humanoid completes a simulated road crossing using RGB-D camera and radar observations.
+  
